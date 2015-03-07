@@ -61,21 +61,6 @@
 	<section class="section">
 		<h1>API Information</h1>
 		<div class="x_control-group">
-			<label class="x_control-label" for="service_type">Service Type</label>
-			<div class="x_controls">
-				<select name="service_type" id="service_type" value="{$module_info->service_type}" >
-					<option value="sandbox" selected|cond="$module_info->service_type=='sandbox'">
-						Test
-					</option>
-					<option value="live" selected|cond="$module_info->service_type=='live'">
-						Service
-					</option>
-				</select>
-				<a href="#service_type_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
-				<p id="service_type_help" class="x_help-block" hidden>Choose Service Type</p>
-			</div>
-		</div>
-		<div class="x_control-group">
 			<label class="x_control-label" for="storeid">STOREID</label>
 			<div class="x_controls">
 				<input type="text" name="storeid" id="storeid" value="{$module_info->storeid}" />
