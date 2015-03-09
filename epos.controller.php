@@ -110,12 +110,12 @@ class eposController extends epos
 		$extra_vars->return_url = $output->get('return_url');
 		$oEpayController->updateExtraVars($transactionInfo->transaction_srl, serialize($extra_vars));
 
-		$urlInfo = parse_url(getFullUrl());
+		$urlInfo = parse_url(getFullUrl(''));
 		$host = $urlInfo['host'];
 	
 		$strInput = $host . $module_info->cubkey;
 		$strMD5Hash = md5($strInput);	
-		$strXML = sprintf("<?xml version='1.0' encoding='UTF-8'?><MERCHANTXML><CAVALUE>%s</CAVALUE><RETURL>%s/modules/epos/orderinfo.php</RETURL></MERCHANTXML>", $strMD5Hash, getFullUrl());
+		$strXML = sprintf("<?xml version='1.0' encoding='UTF-8'?><MERCHANTXML><CAVALUE>%s</CAVALUE><RETURL>%s/modules/epos/orderinfo.php</RETURL></MERCHANTXML>", $strMD5Hash, getFullUrl(''));
 		echo $strXML;
 		exit();
 	}
